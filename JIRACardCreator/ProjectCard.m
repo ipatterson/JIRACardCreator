@@ -32,7 +32,7 @@ static NSMutableDictionary *issueDetails;
                                                  objectForKey:@"48x48"];
         
         //Assign Issue Detail variables
-        self.cardDescription =
+        self.cardDescription = (NSString *)[issueDetails objectForKey:@"description"];
         self.cardReporter = (NSString *)[(NSDictionary *)
                                          [issueDetails objectForKey:@"reporter"] objectForKey:@"displayName"];
         self.cardReporterAvatarURL = (NSString *)[(NSDictionary *)
@@ -40,13 +40,32 @@ static NSMutableDictionary *issueDetails;
                                              [issueDetails objectForKey:@"reporter"]
                                              objectForKey:@"avatarUrls"]
                                             objectForKey:@"24x24"];
-        self.cardAssignee = (NSString *)[(NSDictionary *)
-                                         [issueDetails objectForKey:@"assignee"] objectForKey:@"displayName"];
-        self.cardAssigneeAvatarURL = (NSString *)[(NSDictionary *)
-                                            [(NSDictionary *)
-                                             [issueDetails objectForKey:@"assignee"]
-                                             objectForKey:@"avatarUrls"]
-                                            objectForKey:@"24x24"];
+        
+        if ([issueDetails objectForKey:@"assignee"] != (id)[NSNull null]){ //If an Assignee exists
+            self.cardAssignee = (NSString *)[(NSDictionary *)
+                                             [issueDetails objectForKey:@"assignee"] objectForKey:@"displayName"];
+            self.cardAssigneeAvatarURL = (NSString *)[(NSDictionary *)
+                                                      [(NSDictionary *)
+                                                       [issueDetails objectForKey:@"assignee"]
+                                                       objectForKey:@"avatarUrls"]
+                                                      objectForKey:@"24x24"];
+        } else {
+            self.cardAssignee = @"Unassigned";
+            self.cardAssigneeAvatarURL = @"";
+        }
+        
+        if ([issueDetails objectForKey:@"customfield_10004"] != (id)[NSNull null]) { //If Story Points exist
+            self.cardStoryValue = (NSString *)[issueDetails objectForKey:@"customfield_10004"];
+        } else {
+            self.cardStoryValue = @"0";
+        }
+        
+        self.cardIssueType = (NSString *)[(NSDictionary *)
+                                          [issueDetails objectForKey:@"issuetype"] objectForKey:@"name"];
+        
+        self.cardStatus = (NSString *)[(NSDictionary *)
+                                         [issueDetails objectForKey:@"status"] objectForKey:@"name"];
+        
     }
     
     return self;

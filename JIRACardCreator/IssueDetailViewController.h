@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnEditIssue;
 @property (weak, nonatomic) IBOutlet UITextView *txtSummary;
+@property (weak, nonatomic) IBOutlet UILabel *txtStatus;
 @property (weak, nonatomic) IBOutlet UILabel *txtReporter;
 @property (weak, nonatomic) IBOutlet UIImageView *imgReporter;
 @property (weak, nonatomic) IBOutlet UILabel *txtAssignee;

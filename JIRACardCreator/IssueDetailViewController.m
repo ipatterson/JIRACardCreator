@@ -7,6 +7,7 @@
 //
 
 #import "IssueDetailViewController.h"
+#import "ProjectCard.h"
 
 @interface IssueDetailViewController ()
 
@@ -16,6 +17,7 @@
 
 @synthesize btnEditIssue;
 @synthesize txtSummary;
+@synthesize txtStatus;
 @synthesize txtReporter;
 @synthesize imgReporter;
 @synthesize txtAssignee;

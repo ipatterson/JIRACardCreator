@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JIRACardCreator/ProjectCard.m"
-            timestampString = "412730522.406274"
+            timestampString = "412802974.633314"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "-createCardList:"
             landmarkType = "5">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JIRACardCreator/ProjectCard.m"
-            timestampString = "412730522.406274"
+            timestampString = "412802974.633314"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-createCardList:"
             landmarkType = "5">
          </BreakpointContent>
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JIRACardCreator/ProjectCard.m"
-            timestampString = "412730519.398989"
+            timestampString = "412802974.633314"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-init:"
             landmarkType = "5">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JIRACardCreator/ProjectCard.m"
-            timestampString = "412730519.881326"
+            timestampString = "412802974.633314"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-init:"
             landmarkType = "5">
          </BreakpointContent>

@@ -27,6 +27,7 @@
 @property NSString *cardAssigneeAvatarURL;
 @property NSString *cardIssueType;
 @property NSString *cardStoryValue;
+@property NSString *cardStatus;
 
 - (NSMutableArray *) createCardList:(NSArray *)dictionary;
 
