@@ -9,6 +9,8 @@
 #import "ProjectCardsViewController.h"
 #import "Request.h"
 #import "ProjectCard.h"
+#import "ProjectTasks.h"
+#import "IssueDetailViewController.h"
 
 @interface ProjectCardsViewController ()
 
@@ -17,6 +19,8 @@
 @implementation ProjectCardsViewController
 
 @synthesize cards;
+@synthesize statuses;
+@synthesize tasks;
 @synthesize cardTableView;
 @synthesize btnAddIssue;
 @synthesize projectID;
@@ -35,6 +39,7 @@
 {
     self.navigationItem.title = self.projectName;
 
+    //[self prepareTaskList]; //TODO: Implement Grouped lists
     [self prepareCardList];
     
     [super viewDidLoad];
@@ -79,25 +84,14 @@
     ProjectCard *projectCard = cards[indexPath.row];
     cell.textLabel.text = [projectCard cardName];
     cell.detailTextLabel.text = [projectCard cardSummary];
-    
-    NSURL *imageURL = [NSURL URLWithString:[projectCard cardCreatorAvatarURL]];
-    
-    //Async call to download image avatars
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.imageView.image = [UIImage imageWithData:imageData];
-            NSLog(@"Image Added?");
-        });
-    });
-    
+        
     return cell;
 }
 
 -(void)prepareCardList{
     
     //Retrieve the JIRA cards associated to the project
-    Request *projectRequest = [[Request alloc] initProjectGetIssuesByProjectID:projectID];
+    Request *projectRequest = [[Request alloc] initRequestGetIssuesByProjectID:projectID];
     
     [NSURLConnection sendAsynchronousRequest:projectRequest.request queue:
      [[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
@@ -115,6 +109,36 @@
              //TODO: User has no Cards or Error
          }
      }];
+}
+
+-(void)prepareTaskList{
+    //Retrieve the JIRA cards associated to the project
+    Request *taskRequest = [[Request alloc] initRequestGetProjectStatusesByProjectID:projectID];
+    
+    [NSURLConnection sendAsynchronousRequest:taskRequest.request queue:
+     [[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+         NSArray *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+         
+         if(results){
+             ProjectTasks *taskDictionary = [[ProjectTasks alloc] initDictionaryWithJSON:results];
+             
+             NSLog(@"DEBUG CHECK");
+             NSLog(@"%@", [taskDictionary getAllTasks]);
+             
+//             //Fires off the updated table. Async call prevents lag between segue and tableView
+//             dispatch_async(dispatch_get_main_queue(), ^{
+//                 [cardTableView reloadData];
+//             });
+         } else {
+             //TODO: User has no Cards or Error
+         }
+     }];
+}
+
+//Set the Title of each Grouped Section
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    // set title of section here
+    return [statuses objectAtIndex:section];
 }
 
 /*
@@ -156,16 +180,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"issueDetails"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        ProjectCard *selectedCard = cards[indexPath.row];
+        
+        IssueDetailViewController *controller = (IssueDetailViewController *)segue.destinationViewController;
+        controller.project = selectedCard;
+    }
 }
 
- */
 
 @end

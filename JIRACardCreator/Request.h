@@ -24,7 +24,8 @@ typedef enum httpMethods{
 -(NSString *)httpMethodToString:(HttpMethod)httpMethod;
 
 -(id)initRequestWithURLFragment:(NSString *)urlString andHttpMethod:(HttpMethod)httpMethod;
--(id)initProjectGetIssuesByProjectID:(NSString *)projectID;
+-(id)initRequestGetIssuesByProjectID:(NSString *)projectID;
+-(id)initRequestGetProjectStatusesByProjectID:(NSString *)projectID;
 
 -(void)setPostData:(NSData *)jsonData;
 

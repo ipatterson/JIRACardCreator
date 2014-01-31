@@ -16,7 +16,7 @@
 }
 
 -(id)initRequestWithURLFragment:(NSString *)urlString andHttpMethod:(HttpMethod)httpMethod;
--(id)initProjectGetIssuesByProjectID:(NSString *)projectID;
+-(id)initRequestGetIssuesByProjectID:(NSString *)projectID;
 
 @end
 
@@ -47,11 +47,21 @@ NSString *baseURL = @"https://catalystit.atlassian.net/rest/";
     return self;
 }
 
--(id)initProjectGetIssuesByProjectID:(NSString *)projectID {
+//Return a Request to obtain a list of all Issues associated to a project.
+-(id)initRequestGetIssuesByProjectID:(NSString *)projectID {
     //Build the URL fragment
     NSString *urlFragment = @"api/2/search?jql=project=";
     urlFragment = [urlFragment stringByAppendingString:projectID];
     
+    return [self initRequestWithURLFragment:urlFragment andHttpMethod:GET];
+}
+
+//Return a Request to obtain a list of all Statuses associated to a project (Used for organizing issues).
+-(id)initRequestGetProjectStatusesByProjectID:(NSString *)projectID {
+    NSString *urlFragment = @"api/2/project/";
+    urlFragment = [urlFragment stringByAppendingString:projectID];
+    urlFragment = [urlFragment stringByAppendingString:@"/statuses"];
+
     return [self initRequestWithURLFragment:urlFragment andHttpMethod:GET];
 }
 

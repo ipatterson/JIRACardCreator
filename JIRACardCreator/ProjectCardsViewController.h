@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *cardTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAddIssue;
 @property (weak, nonatomic) NSMutableArray *cards;
+@property (weak, nonatomic) NSMutableArray *statuses;
+@property (weak, nonatomic) NSDictionary *tasks;
 @property (weak, nonatomic) NSString *projectID;
 @property (weak, nonatomic) NSString *projectName;
 

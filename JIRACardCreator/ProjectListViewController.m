@@ -116,12 +116,25 @@ NSString *selectedProjectURL;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"projectCardList"]){
+        
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Project *selectedProject = projects[indexPath.row];
-        
+
         ProjectCardsViewController *controller = (ProjectCardsViewController *)segue.destinationViewController;
         controller.projectID = selectedProject.projectID;
         controller.projectName = selectedProject.projectName;
+        
+        Request *statusRequest = [[Request alloc] initRequestGetProjectStatusesByProjectID:[selectedProject projectID]];
+        
+        [NSURLConnection sendAsynchronousRequest:statusRequest.request queue:
+         [[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+             NSMutableArray *allStatuses = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+             if(allStatuses){ //If Data exists
+                 controller.statuses = allStatuses;
+             } else {
+                 controller.statuses = [NSMutableArray arrayWithObjects:@"Issues", nil];
+             }
+         }];
     }
 }
 

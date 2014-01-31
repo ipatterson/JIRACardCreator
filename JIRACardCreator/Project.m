@@ -20,7 +20,6 @@ static NSMutableArray *projects;
         self.projectName = (NSString *)[item objectForKey:@"name"];
         self.projectKey = (NSString *)[item objectForKey:@"key"];
     }
-    
     return self;
 }
 

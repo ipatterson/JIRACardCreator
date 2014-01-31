@@ -13,6 +13,7 @@
 		942C5ADD189871F8009D0750 /* ProjectCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C5ADC189871F8009D0750 /* ProjectCardsViewController.m */; };
 		942C5AE018987AE5009D0750 /* ProjectCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C5ADF18987AE5009D0750 /* ProjectCard.m */; };
 		942C5AE31899C923009D0750 /* IssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C5AE21899C923009D0750 /* IssueDetailViewController.m */; };
+		94ADDD59189B1AE5006E4360 /* ProjectTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ADDD58189B1AE4006E4360 /* ProjectTasks.m */; };
 		94CA2E1E1891A6C700A285A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CA2E1D1891A6C700A285A9 /* Foundation.framework */; };
 		94CA2E201891A6C700A285A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CA2E1F1891A6C700A285A9 /* CoreGraphics.framework */; };
 		94CA2E221891A6C700A285A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CA2E211891A6C700A285A9 /* UIKit.framework */; };
@@ -52,6 +53,8 @@
 		942C5ADF18987AE5009D0750 /* ProjectCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCard.m; sourceTree = "<group>"; };
 		942C5AE11899C923009D0750 /* IssueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueDetailViewController.h; sourceTree = "<group>"; };
 		942C5AE21899C923009D0750 /* IssueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueDetailViewController.m; sourceTree = "<group>"; };
+		94ADDD57189B1AE4006E4360 /* ProjectTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTasks.h; sourceTree = "<group>"; };
+		94ADDD58189B1AE4006E4360 /* ProjectTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTasks.m; sourceTree = "<group>"; };
 		94CA2E1A1891A6C700A285A9 /* JIRACardCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JIRACardCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CA2E1D1891A6C700A285A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94CA2E1F1891A6C700A285A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -106,6 +109,8 @@
 				942C5AD8189837D9009D0750 /* Request.m */,
 				942C5ADE18987AE5009D0750 /* ProjectCard.h */,
 				942C5ADF18987AE5009D0750 /* ProjectCard.m */,
+				94ADDD57189B1AE4006E4360 /* ProjectTasks.h */,
+				94ADDD58189B1AE4006E4360 /* ProjectTasks.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				94CA2E341891A6C700A285A9 /* LoginViewController.m in Sources */,
 				94CA2E2E1891A6C700A285A9 /* AppDelegate.m in Sources */,
 				942C5ADD189871F8009D0750 /* ProjectCardsViewController.m in Sources */,
+				94ADDD59189B1AE5006E4360 /* ProjectTasks.m in Sources */,
 				942C5AD518970F66009D0750 /* Project.m in Sources */,
 				94CA2E2A1891A6C700A285A9 /* main.m in Sources */,
 				942C5AE31899C923009D0750 /* IssueDetailViewController.m in Sources */,

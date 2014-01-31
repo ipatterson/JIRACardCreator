@@ -25,11 +25,6 @@ static NSMutableDictionary *issueDetails;
         self.cardName = (NSString *)[card objectForKey:@"key"];
         
         self.cardSummary = (NSString *)[issueDetails objectForKey:@"summary"];
-        self.cardCreatorAvatarURL = (NSString *)[(NSDictionary *)
-                                                 [(NSDictionary *)
-                                                  [issueDetails objectForKey:@"creator"]
-                                                  objectForKey:@"avatarUrls"]
-                                                 objectForKey:@"48x48"];
         
         //Assign Issue Detail variables
         self.cardDescription = (NSString *)[issueDetails objectForKey:@"description"];
@@ -55,9 +50,9 @@ static NSMutableDictionary *issueDetails;
         }
         
         if ([issueDetails objectForKey:@"customfield_10004"] != (id)[NSNull null]) { //If Story Points exist
-            self.cardStoryValue = (NSString *)[issueDetails objectForKey:@"customfield_10004"];
+            self.cardStoryValue = (NSNumber *)[issueDetails objectForKey:@"customfield_10004"];
         } else {
-            self.cardStoryValue = @"0";
+            self.cardStoryValue = 0;
         }
         
         self.cardIssueType = (NSString *)[(NSDictionary *)

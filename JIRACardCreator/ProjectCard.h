@@ -13,7 +13,6 @@
 @property NSString *cardID;
 @property NSString *cardName;
 @property NSString *cardSummary;
-@property NSString *cardCreatorAvatarURL;
 
 @property NSMutableArray *cards;
 @property NSMutableDictionary *issueDetails;
@@ -26,7 +25,7 @@
 @property NSString *cardAssignee;
 @property NSString *cardAssigneeAvatarURL;
 @property NSString *cardIssueType;
-@property NSString *cardStoryValue;
+@property NSNumber *cardStoryValue;
 @property NSString *cardStatus;
 
 - (NSMutableArray *) createCardList:(NSArray *)dictionary;
