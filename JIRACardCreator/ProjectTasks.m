@@ -44,4 +44,18 @@ static NSMutableDictionary *taskDictionary;
     return [[self.taskDictionary keyEnumerator] allObjects];
 }
 
+-(NSDictionary *)getAllStatusesForTask:(int)indexNumber{
+    NSArray *tasks = [self getAllTasks];
+    __block NSDictionary *statuses;
+    
+    if(indexNumber <= [tasks count]){
+        NSString *key = [tasks objectAtIndex:indexNumber];
+        statuses = [self.taskDictionary objectForKey:key];
+    } else {
+        statuses = nil;
+    }
+    
+    return statuses;
+}
+
 @end

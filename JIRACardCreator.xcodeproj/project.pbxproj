@@ -13,6 +13,7 @@
 		942C5ADD189871F8009D0750 /* ProjectCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C5ADC189871F8009D0750 /* ProjectCardsViewController.m */; };
 		942C5AE018987AE5009D0750 /* ProjectCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C5ADF18987AE5009D0750 /* ProjectCard.m */; };
 		942C5AE31899C923009D0750 /* IssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C5AE21899C923009D0750 /* IssueDetailViewController.m */; };
+		944AD0B218A039B1005CB614 /* CreateIssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944AD0B118A039B1005CB614 /* CreateIssueViewController.m */; };
 		94ADDD59189B1AE5006E4360 /* ProjectTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ADDD58189B1AE4006E4360 /* ProjectTasks.m */; };
 		94CA2E1E1891A6C700A285A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CA2E1D1891A6C700A285A9 /* Foundation.framework */; };
 		94CA2E201891A6C700A285A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CA2E1F1891A6C700A285A9 /* CoreGraphics.framework */; };
@@ -53,6 +54,8 @@
 		942C5ADF18987AE5009D0750 /* ProjectCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCard.m; sourceTree = "<group>"; };
 		942C5AE11899C923009D0750 /* IssueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueDetailViewController.h; sourceTree = "<group>"; };
 		942C5AE21899C923009D0750 /* IssueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueDetailViewController.m; sourceTree = "<group>"; };
+		944AD0B018A039B1005CB614 /* CreateIssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateIssueViewController.h; sourceTree = "<group>"; };
+		944AD0B118A039B1005CB614 /* CreateIssueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateIssueViewController.m; sourceTree = "<group>"; };
 		94ADDD57189B1AE4006E4360 /* ProjectTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTasks.h; sourceTree = "<group>"; };
 		94ADDD58189B1AE4006E4360 /* ProjectTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTasks.m; sourceTree = "<group>"; };
 		94CA2E1A1891A6C700A285A9 /* JIRACardCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JIRACardCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +129,8 @@
 				94CA2E331891A6C700A285A9 /* LoginViewController.m */,
 				942C5AE11899C923009D0750 /* IssueDetailViewController.h */,
 				942C5AE21899C923009D0750 /* IssueDetailViewController.m */,
+				944AD0B018A039B1005CB614 /* CreateIssueViewController.h */,
+				944AD0B118A039B1005CB614 /* CreateIssueViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				942C5ADD189871F8009D0750 /* ProjectCardsViewController.m in Sources */,
 				94ADDD59189B1AE5006E4360 /* ProjectTasks.m in Sources */,
 				942C5AD518970F66009D0750 /* Project.m in Sources */,
+				944AD0B218A039B1005CB614 /* CreateIssueViewController.m in Sources */,
 				94CA2E2A1891A6C700A285A9 /* main.m in Sources */,
 				942C5AE31899C923009D0750 /* IssueDetailViewController.m in Sources */,
 				942C5AD9189837D9009D0750 /* Request.m in Sources */,

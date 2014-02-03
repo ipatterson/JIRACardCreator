@@ -27,7 +27,11 @@ static NSMutableDictionary *issueDetails;
         self.cardSummary = (NSString *)[issueDetails objectForKey:@"summary"];
         
         //Assign Issue Detail variables
-        self.cardDescription = (NSString *)[issueDetails objectForKey:@"description"];
+        if ([issueDetails objectForKey:@"description"] != (id)[NSNull null]) {
+            self.cardDescription = (NSString *)[issueDetails objectForKey:@"description"];
+        } else {
+            self.cardDescription = @"No Description Found.";
+        }
         self.cardReporter = (NSString *)[(NSDictionary *)
                                          [issueDetails objectForKey:@"reporter"] objectForKey:@"displayName"];
         self.cardReporterAvatarURL = (NSString *)[(NSDictionary *)

@@ -34,8 +34,8 @@ NSString *loginURL = @"auth/latest/session/";
 //    userNameField.placeholder = @"Username";
 //    passwordField.placeholder = @"Password";
     
-    userNameField.text = @"ipatterson";
-    passwordField.text = @"Cherry#2";
+    userNameField.text = @"ORsandboxB";
+    passwordField.text = @"Password1234";
 }
 
 - (void)didReceiveMemoryWarning

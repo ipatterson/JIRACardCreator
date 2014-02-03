@@ -26,5 +26,6 @@
 
 -(id) initDictionaryWithJSON:(NSArray *)data;
 -(NSArray *)getAllTasks;
+-(NSDictionary *)getAllStatusesForTask:(int)indexNumber;
 
 @end

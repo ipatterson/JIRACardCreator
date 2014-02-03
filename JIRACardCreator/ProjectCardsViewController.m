@@ -26,6 +26,8 @@
 @synthesize projectID;
 @synthesize projectName;
 
+NSArray *taskList;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -39,10 +41,11 @@
 {
     self.navigationItem.title = self.projectName;
 
-    //[self prepareTaskList]; //TODO: Implement Grouped lists
     [self prepareCardList];
     
     [super viewDidLoad];
+    
+    [self getTaskList];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -111,26 +114,21 @@
      }];
 }
 
--(void)prepareTaskList{
+-(void)getTaskList{
     //Retrieve the JIRA cards associated to the project
     Request *taskRequest = [[Request alloc] initRequestGetProjectStatusesByProjectID:projectID];
+    
+    __block ProjectTasks *taskDictionary;
     
     [NSURLConnection sendAsynchronousRequest:taskRequest.request queue:
      [[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
          NSArray *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
          
          if(results){
-             ProjectTasks *taskDictionary = [[ProjectTasks alloc] initDictionaryWithJSON:results];
-             
-             NSLog(@"DEBUG CHECK");
-             NSLog(@"%@", [taskDictionary getAllTasks]);
-             
-//             //Fires off the updated table. Async call prevents lag between segue and tableView
-//             dispatch_async(dispatch_get_main_queue(), ^{
-//                 [cardTableView reloadData];
-//             });
+             taskDictionary = [[ProjectTasks alloc] initDictionaryWithJSON:results];
+             taskList = [taskDictionary getAllTasks];
          } else {
-             //TODO: User has no Cards or Error
+             //TODO: No tasks found
          }
      }];
 }
@@ -140,46 +138,6 @@
     // set title of section here
     return [statuses objectAtIndex:section];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 
@@ -192,6 +150,7 @@
         
         IssueDetailViewController *controller = (IssueDetailViewController *)segue.destinationViewController;
         controller.project = selectedCard;
+        controller.projectTasks = taskList;
     }
 }
 
